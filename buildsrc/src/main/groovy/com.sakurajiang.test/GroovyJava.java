@@ -78,7 +78,7 @@ public class GroovyJava {
 //                    ctMethod.addCatch("{ System.out.println($e); throw $e; }", etype);
 //                    String insetBeforeStr = "{ $1 = 0;}";
 //                    ctMethod.setBody(insetBeforeStr);
-                    ctMethod.insertBefore("{ System.out.println(\"jiji\"); }");
+                    ctMethod.insertBefore("{ System.out.println(\"this is test\"); }");
                     ctMethod.getMethodInfo().rebuildStackMap(pool);
                     ctClass.writeFile(path);
                     ctClass.detach();//释放
