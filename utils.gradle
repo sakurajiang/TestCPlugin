@@ -1,0 +1,12 @@
+import groovy.util.slurpersupport.GPathResult
+import groovy.util.XmlSlurper  //解析XML时候要引入这个groovy的package
+
+def getAppVersion(){
+    def xmlFile = project.file(rootDir.getAbsolutePath()+"/app/src/main/AndroidManifest.xml");
+    def rootManifest = new XmlSlurper().parse(xmlFile);
+    return rootManifest.@'android:versionName'
+}
+ext{
+    getMyAppVersion = this.&getAppVersion();
+    println("utils"+getMyAppVersion);
+}

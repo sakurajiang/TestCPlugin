@@ -1,0 +1,10 @@
+println("gradleHashCode"+gradle.hashCode());
+def initSomeValue(){
+    Properties properties = new Properties();
+    File fileProperties = new File(rootDir.getAbsolutePath()+"/local.properties");
+    properties.load(fileProperties.newDataInputStream());
+    gradle.ext.myApi = properties.getProperty("sdk.dir");
+    println("init"+gradle.myApi);
+}
+initSomeValue();
+include ':app', ':buildsrc'
